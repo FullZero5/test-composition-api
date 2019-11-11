@@ -8,19 +8,15 @@ export const useWeatherApi = () => {
     errored: false
   });
   const params = {
-    access_key: "YOUR_ACCESS_KEY",
+    access_key: "2039c4a50788281dd9c3c2e3d8384d24",
     query: "New York"
   };
   axios
-    .get("https://api.weatherstack.com/current", { params })
+    .get("http://api.weatherstack.com/current", { params })
     .then(response => {
       const apiResponse = response.data;
       state.weather = apiResponse;
-      console.log(
-        `Current temperature in ${apiResponse.location.name} is ${
-          apiResponse.current.temperature
-        }℃`
-      );
+      console.log(apiResponse);
     })
     .catch(error => {
       console.log(error);

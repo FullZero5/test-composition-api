@@ -8,7 +8,7 @@ export const useWeatherApi = () => {
     errored: false
   });
   const params = {
-    access_key: "2039c4a50788281dd9c3c2e3d8384d24",
+    access_key: "",
     query: "New York"
   };
   axios

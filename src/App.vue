@@ -1,17 +1,22 @@
 <template>
   <div id="app">
     <img width="25%" src="./assets/logo.png">
-    <HelloWorld msg="Hello Vue in CodeSandbox!" />
+    <HelloWorld msg="Hello Vue in CodeSandbox!"/>
   </div>
 </template>
 
 <script>
 import HelloWorld from "./components/HelloWorld";
+import { useWeatherApi } from "./functions/weather-api";
 
 export default {
   name: "App",
-  components: {
-    HelloWorld
+  components: { HelloWorld },
+  setup() {
+    const state = useWeatherApi();
+    return {
+      state
+    };
   }
 };
 </script>

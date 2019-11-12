@@ -1,5 +1,6 @@
 import { reactive } from "@vue/composition-api";
 import axios from "axios";
+import { default as key } from "./key";
 
 export const useWeatherApi = () => {
   const state = reactive({
@@ -8,14 +9,15 @@ export const useWeatherApi = () => {
     errored: false
   });
   const params = {
-    access_key: "",
-    query: "New York"
+    key: key.APIKEY,
+    city: "Краснодар",
+    lang: "ru"
   };
   axios
-    .get("http://api.weatherstack.com/current", { params })
+    .get("https://api.weatherbit.io/v2.0/current", { params })
     .then(response => {
       const apiResponse = response.data;
-      state.weather = apiResponse;
+      state.weather = apiResponse.data;
       console.log(apiResponse);
     })
     .catch(error => {

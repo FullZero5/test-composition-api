@@ -18,7 +18,6 @@ export const useWeatherApi = () => {
     .then(response => {
       const apiResponse = response.data;
       state.weather = apiResponse.data;
-      console.log(apiResponse);
     })
     .catch(error => {
       console.log(error);

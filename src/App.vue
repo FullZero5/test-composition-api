@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Widget :weather="state.weather[0]"/>
+    <Widget v-for="item in state.weather" :weather="item" :key="item[0]"/>
   </div>
 </template>
 

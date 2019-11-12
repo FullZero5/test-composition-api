@@ -20,8 +20,10 @@ export const useWeatherApi = () => {
       state.weather = apiResponse.data;
     })
     .catch(error => {
-      console.log(error);
-      state.errored = true;
+       /* eslint-disable no-console */
+       console.log(error);
+       /* eslint-enable no-console */
+       state.errored = true;
     })
     .finally(() => (state.loading = false));
   return state;
